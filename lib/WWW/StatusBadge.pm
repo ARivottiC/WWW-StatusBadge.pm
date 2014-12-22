@@ -67,10 +67,6 @@ __END__
     my $coveralls_textile = $badge->coveralls->textile;
     my $cpan_rst          = $badge->badgefury( 'for' => 'perl' )->rst;
 
-=head1 DESCRIPTION
-
-C<WWW::StatusBadge> .
-
 =method new
 
     my $badge = WWW::StatusBadge->new(
