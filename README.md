@@ -26,10 +26,6 @@ version 0.0.1
     my $coveralls_textile = $badge->coveralls->textile;
     my $cpan_rst          = $badge->badgefury( 'for' => 'perl' )->rst;
 
-# DESCRIPTION
-
-`WWW::StatusBadge` .
-
 # ATTRIBUTES
 
 ## args
@@ -64,6 +60,10 @@ None of the following are required and may vary depending on the plugin used.
 - _branch => $branch\_name_
 
     The branch name.
+
+- _private => 0|1_
+
+    Declare the repository as private.
 
 See [WWW::StatusBadge::Service](https://metacpan.org/pod/WWW::StatusBadge::Service) for more info.
 

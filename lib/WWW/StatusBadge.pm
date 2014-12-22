@@ -96,6 +96,10 @@ The user name.
 
 The branch name.
 
+=item I<private =E<gt> 0|1>
+
+Declare the repository as private.
+
 =back
 
 See L<WWW::StatusBadge::Service> for more info.

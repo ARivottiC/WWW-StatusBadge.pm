@@ -8,7 +8,10 @@ use parent 'WWW::StatusBadge::Service';
 
 sub new {
     my $class = shift;
-    my %arg   = @_;
+    my %arg   = (
+        'private' => 0,
+        @_
+    );
 
     for my $key ( qw(user repo branch) ) {
         Carp::croak( sprintf 'missing required parameter %s!', $key )
@@ -17,13 +20,12 @@ sub new {
 
     my @values = @arg{ qw(user repo branch) };
 
-    my $url = sprintf 'https://coveralls.io/r/%s/%s?branch=%s', @values;
+    my $url =
+        sprintf 'https://coveralls.io/r/%s/%s?branch=%s', @values;
 
-    my $format = 'https://coveralls.io/repos/%s/%s/badge.png?branch=%s';
-    if ( $arg{'svg'} ) {
-        $format = 'https://img.shields.io/coveralls/%s/%s.svg';
-        pop @values;
-    }
+    my $format = $arg{'private'}
+               ? 'https://coveralls.io/repos/%s/%s/badge.png?branch=%s'
+               : 'https://img.shields.io/coveralls/%s/%s.svg';
 
     return $class->SUPER::new(
         'txt' => 'Coverage Status',
@@ -75,6 +77,10 @@ The user name. Required.
 =item I<branch =E<gt> $branch_name>
 
 The branch name. Required.
+
+=item I<private =E<gt> 0|1>
+
+Declare the repository as private. Optional, default is 0.
 
 =back
 
