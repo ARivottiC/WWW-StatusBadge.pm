@@ -24,6 +24,9 @@ deps:
 		| grep -vP '[^\w:]' \
 		| cpanm
 
+release:
+	@dzil release
+
 test:
 	@dzil smoke --release --author
 
