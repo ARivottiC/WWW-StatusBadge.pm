@@ -67,6 +67,20 @@ __END__
     my $coveralls_textile = $badge->coveralls->textile;
     my $cpan_rst          = $badge->badgefury( 'for' => 'perl' )->rst;
 
+=head1 DESCRIPTION
+
+A Status Badge is dynamically generated image that provide different
+information relating to a project, such as coverage, test, build, and can be
+found in many GitHub repositories.
+
+This module generates the markup necessary to include this badges in any
+documentation.
+
+For more information see
+L<Project status badges|http://bahmutov.calepin.co/project-status-badges.html>,
+L<badges/shields on GitHub|https://github.com/badges/shields> and
+L<Travis CI: Status Images|http://docs.travis-ci.com/user/status-images/>.
+
 =method new
 
     my $badge = WWW::StatusBadge->new(
